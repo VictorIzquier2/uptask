@@ -2,12 +2,41 @@
 @use 'base/mixins' as m;
 @use 'sass:color';
 
-.barra{
-  background-color: v.$blanco;
-  padding: 1rem 2rem;
-  box-shadow: 1px 12px 10px -12px color.scale(v.$negro, $lightness: 60%);
+.barra-mobile{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: v.$indigo;
+  padding: 2rem 4rem;
 
   @include m.tablet{
+    display: none;
+  }
+
+  h1{
+    color: v.$blanco;
+    margin: 0;
+  }
+  
+  .menu{
+
+    img{
+      width: .8rem;
+
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.barra{
+  display: none;
+  
+  @include m.tablet{
+    background-color: v.$blanco;
+    padding: 1rem 2rem;
+    box-shadow: 1px 12px 10px -12px color.scale(v.$negro, $lightness: 60%);
     display: flex;
     justify-content: space-between;
     align-items: center;

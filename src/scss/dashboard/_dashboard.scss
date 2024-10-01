@@ -1,5 +1,6 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+@use 'sass:color';
 
 .dashboard{
   background-color: v.$grisClaro;
@@ -11,6 +12,7 @@
 
   .principal{
     flex: 1;
+    overflow-y: scroll;
   }
 
   .contenido {
@@ -35,5 +37,11 @@
       @include m.boton(v.$indigo, v.$blanco);
     }
   }
-    
+   
+  .enlace{
+    color: v.$indigo;
+    &:hover{
+      color: color.scale(v.$indigo, $lightness: -20%);
+    }
+  }
 }
