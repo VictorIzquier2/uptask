@@ -1,0 +1,134 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+@media (prefers-color-scheme: dark){
+  $grisOscuro: rgb(44, 44, 59);
+
+  body,
+  .dashboard {
+    background-color: $grisOscuro;
+  }
+
+  .tagline,
+  .formulario label,
+  .login .acciones a,
+  .crear .acciones a,
+  .olvide .acciones a {
+    color: v.$blanco;
+  }
+  .descripcion-pagina,
+  .formulario .campo input,
+  .nombre-pagina,
+  .dashboard .enlace {
+    color: v.$blanco;
+  }
+  .dashboard {
+
+    .enlace:hover{
+      color: v.$gris;
+    }
+
+    .formulario input:not([type=submit]){
+     background-color: color.scale($grisOscuro, $lightness: 20%); 
+
+      &::placeholder{
+        color: color.scale(v.$grisOscuro, $lightness: 60%)
+      }
+    }
+
+    .sidebar.mostrar{
+      background-color: rgb(44,44,59, .95)!important;
+    }
+  }
+  .formulario .campo input{
+    background-color: color.scale($grisOscuro, $lightness: 15%);
+  }
+
+  .alerta.error {
+    background-color: color.scale(v.$rojo, $lightness: 60%);
+  }
+
+  .barra-mobile,
+  .barra{
+    background-color: color.scale($grisOscuro, $lightness: -15%);
+  }
+
+  .barra {
+
+    p{
+      color: v.$grisClaro;
+      
+      span {
+        color: v.$naranja;
+      }
+    }
+
+    .cerrar-sesion {
+      @include m.boton(v.$naranja, v.$blanco);
+    }
+    
+  }
+
+  .sidebar{
+    
+    @include m.tablet{
+      background-color: color.scale($grisOscuro, $lightness: -10%);
+    }
+
+    .sidebar-nav a{
+      
+      &.activo,
+      &:hover {
+        background-color: v.$naranja;      
+      }
+    }
+  }
+
+
+  .filtros{
+    background-color: color.scale($grisOscuro, $lightness: 15%);
+
+    h2,
+    label{
+      color: v.$blanco;
+    }
+    input[type="radio"]{
+      accent-color: v.$naranja;
+    }
+  }
+
+  .listado-proyectos .proyecto{
+    background-color: color.scale($grisOscuro, $lightness: 15%);    
+    &:hover{
+      background-color: color.scale($grisOscuro, $lightness: 5%);    
+    }
+  }
+
+  .listado-tareas .tarea{
+    background-color: color.scale($grisOscuro, $lightness: 10%);
+    border-bottom: 1px solid v.$gris;
+
+    p{
+      color: v.$grisClaro;
+    }
+  }
+
+  .modal .formulario{
+    background-color: $grisOscuro;
+    input[type="text"]{
+      background-color: color.scale($grisOscuro, $lightness: 20%);
+      border: none;
+      color: v.$blanco;
+
+      &::placeholder{
+        color: color.scale(v.$grisOscuro, $lightness: 60%)
+      }
+    }
+
+    legend{
+      color: v.$grisClaro;
+    }
+  }
+
+}
